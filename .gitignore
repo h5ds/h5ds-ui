@@ -1,0 +1,6 @@
+node_modules/
+dist/
+/dist-h5ds-ui
+/dist-plugins
+/dist-preview-app
+/umd

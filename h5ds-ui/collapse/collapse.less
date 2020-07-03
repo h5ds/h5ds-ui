@@ -1,0 +1,58 @@
+@import '../less/color.less';
+
+.ui-collapse {
+  margin: 10px 0;
+
+  .ui-collapse-title {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+
+    .ui-collapse-title-span {
+      width: 60px;
+      font-size: 12px;
+    }
+
+    .ui-collapse-icon {
+      margin-left: 15px;
+    }
+  }
+
+  .ui-collapse-title-small {
+    font-size: 12px;
+  }
+
+  .ui-collapse-content {
+    background: @input;
+    padding: 10px 0;
+    margin: 0px 15px;
+
+    .ui-collapse-inner {
+      margin: 0 10px;
+    }
+  }
+
+  .ui-item {
+    margin: 20px 0;
+  }
+
+  .ui-color-item {
+    margin-left: 4px;
+  }
+
+  .ant-radio-group-small .ant-radio-button-wrapper {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  .ant-slider {
+    width: 96px;
+  }
+
+}
+
+.theme-dark .ui-collapse {
+  .ui-collapse-content {
+    background: @dark_input;
+  }
+}

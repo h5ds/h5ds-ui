@@ -1,0 +1,59 @@
+@import '../less/color.less';
+
+.ui-color-group {
+  display: flex;
+  align-items: center;
+
+  .ui-color-group-clear {
+    font-size: 12px;
+    color: @text;
+  }
+
+  span {
+    cursor: pointer;
+  }
+
+  .ui-color-use {
+    display: inline-block;
+    width: 52px;
+    height: 32px;
+    border: 1px solid @border;
+    border-radius: 4px;
+  }
+
+  .ui-color-item {
+    margin-left: 7px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid @border;
+    border-radius: 100px;
+  }
+}
+
+.ui-color-group-small {
+  .ui-color-use {
+    height: 22px;
+    width: 30px;
+  }
+
+  .ui-color-item {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.theme-dark .ui-color-group {
+  .ui-color-use {
+    border: 1px solid @dark_border;
+  }
+
+  .ui-color-item {
+    border: 1px solid @dark_border;
+  }
+}
+
+.ui-color-popover {
+  .ant-popover-inner-content {
+    padding: 0;
+  }
+}

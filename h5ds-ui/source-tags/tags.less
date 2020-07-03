@@ -1,0 +1,50 @@
+@import '../less/color.less';
+
+.ui-source-tags {
+  margin: 20px 0;
+  background-color: @input;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px 5px;
+
+  &>section {
+    margin: 5px;
+    cursor: pointer;
+
+    &:hover {
+      color: @main;
+    }
+  }
+
+  .ui-source-tags-active {
+    color: @main;
+  }
+
+  .ui-source-tags-edit {
+    background-color: @main;
+    color: @light;
+    padding: 4px 15px;
+    border-radius: 100px;
+    font-size: 12px;
+  }
+}
+
+.theme-dark .ui-source-tags {
+  background-color: @dark_input;
+
+  &>section {
+    &:hover {
+      color: @dark_main;
+    }
+  }
+
+  .ui-source-tags-active {
+    color: @dark_main;
+  }
+
+  .ui-source-tags-edit {
+    background-color: @dark_main;
+    color: @dark_light;
+  }
+}

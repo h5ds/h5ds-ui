@@ -1,0 +1,37 @@
+.ui-colors {
+  width: 193px;
+  .ui-colors-item {
+    cursor: pointer;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    margin: 0 10px 10px 0;
+    vertical-align: top;
+    color: #fff;
+    position: relative;
+    font-size: 16px;
+
+    a.h5font {
+      display: none;
+      width: 22px;
+      height: 22px;
+      position: absolute;
+      bottom: -22px;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      font-size: 12px;
+      text-align: center;
+      line-height: 22px;
+    }
+
+    &:hover {
+      z-index: 100;
+      a.h5font {
+        display: block;
+      }
+    }
+  }
+}

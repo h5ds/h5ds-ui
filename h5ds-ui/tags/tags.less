@@ -1,0 +1,27 @@
+@import '../less/color.less';
+
+.ui-tags {
+  .ui-tags-item {
+    padding: 7px 24px;
+    background-color: @input;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .ui-tags-active {
+    background-color: @main;
+    color: @light;
+  }
+}
+
+.theme-dark .ui-tags {
+  .ui-tags-item {
+    background-color: @dark_input;
+  }
+
+  .ui-tags-active {
+    background-color: @dark_main;
+    color: @dark_light;
+  }
+}

@@ -1,0 +1,77 @@
+@import '../less/color.less';
+
+.h5-music-player {
+
+  .h5-music-time-number {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+
+    span {
+      width: 100px;
+    }
+  }
+
+  .h5-music-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  .h5-music-do {
+    display: flex;
+  }
+
+  .h5-music-button {
+    padding-right: 20px;
+
+    &>.h5font {
+      font-size: 40px;
+      color: @main;
+    }
+
+    .h5-muisc-waiting {
+      pointer-events: none;
+      color: @input;
+    }
+
+    .h5-muisc-playing {
+      color: @main;
+      cursor: pointer;
+      position: relative;
+      animation: 1s linear 0s 1000 normal forwards running rollInfinite2;
+    }
+
+    .h5-muisc-pause {
+      color: @main;
+      cursor: pointer;
+    }
+  }
+
+  .h5-music-time {
+    width: 200px;
+  }
+}
+
+.theme-dark .h5-music-player {
+
+  .h5-music-button {
+
+    &>.h5font {
+      color: @dark_main;
+    }
+
+    .h5-muisc-waiting {
+      color: @dark_input;
+    }
+
+    .h5-muisc-playing {
+      color: @dark_main;
+    }
+
+    .h5-muisc-pause {
+      color: @dark_main;
+    }
+  }
+}

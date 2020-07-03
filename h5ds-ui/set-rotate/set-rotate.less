@@ -1,0 +1,74 @@
+@import '../less/color.less';
+
+.ui-set-rotate {
+  display: flex;
+  align-items: center;
+
+  .ant-input-number {
+    font-size: 12px;
+  }
+
+  @size: 36px;
+
+  .ui-set-rotate-cricle {
+    width: @size;
+    height: @size;
+    background-color: @commonBg;
+    border: 1px solid @main;
+    position: relative;
+    border-radius: 100px;
+    cursor: pointer;
+
+    .ui-set-rotate-line {
+      position: absolute;
+      width: 0px;
+      margin-left: -0.5px;
+      height: @size/2;
+      top: 0;
+      left: @size/2;
+      background-color: @main;
+      transform-origin: 0 @size/2;
+
+      &::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: @size/2 - 1px;
+        top: 0;
+        left: -0.5px;
+        background-color: @main;
+      }
+    }
+
+    .ui-set-rotate-center {
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 100;
+      transform: translate(-50%, -50%);
+      border-radius: 100px;
+      background-color: @main;
+    }
+  }
+}
+
+.theme-dark .ui-set-rotate {
+  .ui-set-rotate-cricle {
+    background-color: @dark_commonBg;
+    border: 1px solid @dark_main;
+
+    .ui-set-rotate-line {
+      background-color: @dark_main;
+
+      &::after {
+        background-color: @dark_main;
+      }
+    }
+
+    .ui-set-rotate-center {
+      background-color: @dark_main;
+    }
+  }
+}

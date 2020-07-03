@@ -1,0 +1,72 @@
+@import '../less/color.less';
+
+.ui-box {
+  border-bottom: 1px solid @border;
+  position: relative;
+
+  .ui-box-extra {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+  }
+
+  .ui-title {
+    font-size: 12px;
+    padding: 12px;
+    font-weight: bolder;
+    color: @text;
+    position: relative;
+    cursor: pointer;
+
+    a {
+      position: absolute;
+      right: 10px;
+      top: 12px;
+      transform-origin: center;
+      color: @opacityColor4;
+      transition: 0.3s;
+
+      .fpsfont {
+        font-size: 12px;
+      }
+    }
+
+    .ui-box-show {
+      transform: rotate(180deg);
+    }
+  }
+
+  .ui-icon-left {
+    text-indent: 15px;
+
+    a {
+      transform-origin: center;
+      text-indent: 0;
+      left: 10px;
+      right: auto;
+    }
+  }
+
+  .ui-content {
+    padding: 0 12px 20px 12px;
+    font-size: 12px;
+    color: @text;
+  }
+}
+
+.theme-dark .ui-box {
+  border-bottom: 1px solid @dark_border;
+
+  .ui-title {
+    color: @dark_text;
+
+    a {
+      color: @dark_opacityColor4;
+    }
+  }
+
+  .ui-content {
+    color: @dark_text;
+  }
+}

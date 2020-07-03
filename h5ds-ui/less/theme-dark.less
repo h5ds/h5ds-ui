@@ -1,0 +1,54 @@
+@dark_main: #1890FF; // 点缀色
+@dark_icon: #858585; // ico 颜色
+@dark_text: #858585; // 文本色
+@dark_border: #3d3d3d; // 边框色
+@dark_input: #2A2A2A; // 输入框背景
+@dark_light: #fff;
+@dark_timelineBar: #333;
+
+@dark_commonBg: #141414; // 背景色
+@dark_canvasBg: #000; // canvas 背景
+@dark_panelColor: #141414;
+
+// 时间轴
+@dark_rulerLine: rgba(255, 255, 255, 0.4);
+@dark_viewBorder: rgba(255, 255, 255, 0.2);
+@dark_calibration: #363636;
+@dark_lineImage: url(//cdn.h5ds.com/static/images/linebg-black.png);
+@dark_lineImageActive: url(//cdn.h5ds.com/static/images/linebg-black.png);
+@dark_lineBackgroundColor: #222;
+
+// 主色调+透明
+@dark_opacityColor1 : rgba(255, 255, 255, 0.1);
+@dark_opacityColor2 : rgba(255, 255, 255, 0.2);
+@dark_opacityColor3 : rgba(255, 255, 255, 0.3);
+@dark_opacityColor4 : rgba(255, 255, 255, 0.4);
+@dark_opacityColor5 : rgba(255, 255, 255, 0.5);
+@dark_opacityColor6 : rgba(255, 255, 255, 0.6);
+@dark_opacityColor7 : rgba(255, 255, 255, 0.7);
+@dark_opacityColor8 : rgba(255, 255, 255, 0.8);
+@dark_opacityColor9 : rgba(255, 255, 255, 0.9);
+@dark_opacityColor10 : rgba(255, 255, 255);
+
+@dark_boxShadow: 0 0 6px rgba(255, 255, 255, 0.15);
+
+.theme-dark {
+
+  /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+    background-color: #000;
+  }
+
+  /*定义滚动条轨道 内阴影+圆角*/
+  ::-webkit-scrollbar-track {
+    background-color: #666;
+  }
+
+  /*定义滑块 内阴影+圆角*/
+  ::-webkit-scrollbar-thumb {
+    background-color: #333;
+  }
+
+}

@@ -1,0 +1,36 @@
+@import '../less/color.less';
+
+.ui-slider-group{
+  display: block;
+  .ui-slider-group-inner{
+    display: flex;
+  }
+  .ant-input-number{
+    font-size: 12px;
+  }
+}
+.ui-slider{
+  .ant-slider-rail{
+    background-color: @opacityColor1;
+    height: 2px;
+  }
+  .ant-slider-track{
+    height: 2px;
+  }
+  .ant-slider-handle{
+    width: 12px;
+    height: 12px;
+    background-color: @main;
+    border: 2px solid @main;
+  }
+}
+
+.theme-dark .ui-slider{
+  .ant-slider-rail{
+    background-color: @dark_opacityColor1;
+  }
+  .ant-slider-handle{
+    background-color: @dark_main;
+    border: 2px solid @dark_main;
+  }
+}

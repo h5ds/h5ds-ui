@@ -1,0 +1,64 @@
+@import '../less/color.less';
+
+.ui-item {
+  display: flex;
+  margin: 20px 15px;
+  align-items: center;
+
+  &.ui-item-block,
+  .ui-item-block-ctx {
+    display: block;
+  }
+
+  .ui-item-title {
+    font-size: 12px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+
+    .ui-item-h {
+      flex-grow: 1;
+    }
+
+    .ui-item-info {
+      margin-left: 5px;
+      color: #2294FE;
+    }
+  }
+
+  .ui-item-content {
+    width: calc(100% - 60px)
+  }
+
+  &.ui-item-block {
+    .ui-item-content {
+      width: 100%;
+    }
+
+    &>.ui-item-title {
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+  }
+
+
+}
+
+.ui-items {
+  display: flex;
+}
+
+.ui-item-small {
+  margin: 10px 5px;
+}
+
+.ui-item-outbox {
+  position: relative;
+  padding: 20px;
+  margin: 0 15px;
+  background: @input;
+}
+
+.theme-dark .ui-item-outbox {
+  background: @dark_input;
+}

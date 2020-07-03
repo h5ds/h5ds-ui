@@ -1,0 +1,64 @@
+.ui-img-list {
+  width: 265px;
+
+  .ui-img-list-item {
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    background-color: rgb(240, 240, 240);
+    border-radius: 6px;
+    position: relative;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    vertical-align: top;
+    overflow: hidden;
+
+    .ui-img-list-item-hover {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+    }
+
+    &:hover {
+      .ui-img-list-item-hover {
+        display: block;
+      }
+    }
+
+    .ui-img-list-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      a {
+        margin: 0 5px;
+        color: #fff;
+      }
+    }
+
+    .ui-img-list-item-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .ico-jia {
+        font-size: 22px;
+        color: rgb(194, 194, 194);
+      }
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}

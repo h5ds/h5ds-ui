@@ -1,0 +1,33 @@
+@import '../less/color.less';
+
+.ui-source-layout {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .ui-source-layout-title {
+    height: 40px;
+    background-color: @input;
+    color: @main;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ui-source-layout-content {
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    overflow: auto;
+    padding: 10px;
+  }
+}
+
+.theme-dark .ui-source-layout {
+  .ui-source-layout-title {
+    background-color: @dark_input;
+    color: @dark_main;
+  }
+}

@@ -1,0 +1,21 @@
+@import '../less/color.less';
+
+.ui-mitem {
+  margin-bottom: 50px;
+
+  .ui-mitem-title {
+    padding-left: 10px;
+    border-left: 3px solid @main;
+    margin-bottom: 20px;
+  }
+
+  .ui-mitem-content {
+    display: flex;
+  }
+}
+
+.theme-dark .ui-mitem {
+  .ui-mitem-title {
+    border-left: 3px solid @dark_main;
+  }
+}
