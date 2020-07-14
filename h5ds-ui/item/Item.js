@@ -49,7 +49,7 @@ export default function Item({
             ) : null}
             {extra ? <span className="ui-item-extra">{extra}</span> : null}
           </div>
-          <div className="ui-item-content" style={{ width: `calc(100% - ${titleWidth}px)` }}>
+          <div className="ui-item-content" style={{ width: block ? '100%' : `calc(100% - ${titleWidth}px)` }}>
             {children}
           </div>
         </>

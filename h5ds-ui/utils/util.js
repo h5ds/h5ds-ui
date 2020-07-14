@@ -315,6 +315,21 @@ class Util {
   }
 
   /**
+   * canvas裁剪图片
+   * @param {*} src
+   * @param {*} cropdata
+   */
+  cropImageGetBase64 = async (src, cropdata) => {
+    const img = await util.imgLazy(src);
+    const cav = document.createElement('canvas');
+    cav.width = img.naturalWidth;
+    cav.height = img.naturalHeight;
+    const ctx = cav.getContext();
+    ctx.drawImage(img, cropdata.x, cropdata.y, cropdata.width, cropdata.height, img.naturalWidth, img.naturalHeight);
+    return cav.toDataURL('image/png');
+  };
+
+  /**
    * 随机id ,长度默认是8
    */
   randomID(randomLength = 8) {

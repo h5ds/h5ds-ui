@@ -13,7 +13,7 @@ import UploadSource from './upload-source';
 import SourceTags from './source-tags';
 import SourceLayout from './source-layout';
 import MusicPlayer from './music-player';
-import { util } from './utils';
+import { util, LoadSource } from './utils';
 import Errors from './errors';
 import MBModal from './uimb-modal';
 import ImgList from './img-list';
@@ -45,7 +45,8 @@ export const H5dsUI = {
   ImgList,
   MBModal,
   UploadSource,
-  util
+  util,
+  LoadSource
 };
 
 export {
@@ -71,7 +72,8 @@ export {
   ImgList,
   MBModal,
   UploadSource,
-  util
+  util,
+  LoadSource
 };
 
 window.H5dsUI = H5dsUI;
