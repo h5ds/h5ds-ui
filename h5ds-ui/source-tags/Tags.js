@@ -29,10 +29,14 @@ class Tags extends Component {
    */
   getTags = async (page = 1) => {
     const { ajaxGet, scope, type } = this.props;
-    const res = await ajaxGet({ params: { materialType: type, scope, keyword: '', page, size: 999 } });
+    const res = await ajaxGet({ params: { materialType: type, scope, keyword: '', page, page_size: 999 } });
     if (res) {
       this.setState({ data: res.data });
     }
+  };
+
+  getData = () => {
+    return this.state.data;
   };
 
   // 点击
