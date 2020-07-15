@@ -56,5 +56,12 @@ export const apis = [
     tips: '切换标签的回调函数',
     type: 'Function',
     default: '-'
+  },
+  {
+    key: '8',
+    params: 'ajaxGetEnd',
+    tips: '获取到标签数据的回调函数',
+    type: 'Function',
+    default: '-'
   }
 ];

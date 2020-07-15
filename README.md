@@ -21,25 +21,3 @@ function DEMO() {
   return <Item title="标题">内容</Item>
 }
 ```
-
-# 更新记录
-
-### v1.0.4
-
-修复SourceTags分页参数问题
-
-### v1.0.3
-
-修复部分BUG
-
-### v1.0.2
-
-修复部分BUG
-
-### v1.0.1
-
-修复部分BUG
-
-### v1.0.0
-
-发布新版

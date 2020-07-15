@@ -7,6 +7,14 @@ export default function Logs() {
     <div className="logs">
       <Timeline>
         <Timeline.Item>
+          <p>【2020-07-15】发布v1.0.5版本</p>
+          <p>SourceTags新增ajaxGetEnd方法</p>
+        </Timeline.Item>
+        <Timeline.Item>
+          <p>【2020-07-15】发布v1.0.4版本</p>
+          <p>修复SourceTags分页参数问题</p>
+        </Timeline.Item>
+        <Timeline.Item>
           <p>【2020-07-04】发布v1.0.3版本</p>
           <p>修复Item宽度的BUG</p>
         </Timeline.Item>

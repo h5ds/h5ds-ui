@@ -28,9 +28,12 @@ class Tags extends Component {
    * 获取标签
    */
   getTags = async (page = 1) => {
-    const { ajaxGet, scope, type } = this.props;
+    const { ajaxGet, scope, type, ajaxGetEnd } = this.props;
     const res = await ajaxGet({ params: { materialType: type, scope, keyword: '', page, page_size: 999 } });
     if (res) {
+      if (ajaxGetEnd) {
+        ajaxGetEnd(res.data);
+      }
       this.setState({ data: res.data });
     }
   };
