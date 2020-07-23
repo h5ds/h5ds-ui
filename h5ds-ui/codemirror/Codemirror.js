@@ -5,8 +5,17 @@ import 'codemirror/theme/monokai.css';
 import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/javascript/javascript';
 import { Controlled as CodeMirror } from 'react-codemirror2';
-import React from 'react';
+import React, { forwardRef, useRef, useImperativeHandle } from 'react';
 
-export default function CodemirrorRC({ value, options, onBeforeChange }) {
-  return <CodeMirror value={value} onBeforeChange={onBeforeChange} options={options} />;
+function CodemirrorRC({ value, options, onBeforeChange }, ref) {
+  const codemirrorRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    insertCode: code => {
+      codemirrorRef.current.editor.replaceSelection(code);
+    }
+  }));
+
+  return <CodeMirror ref={codemirrorRef} value={value} onBeforeChange={onBeforeChange} options={options} />;
 }
+export default forwardRef(CodemirrorRC);

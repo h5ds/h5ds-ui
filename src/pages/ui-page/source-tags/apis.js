@@ -63,5 +63,12 @@ export const apis = [
     tips: '获取到标签数据的回调函数',
     type: 'Function',
     default: '-'
+  },
+  {
+    key: '9',
+    params: 'canEdit',
+    tips: '可编辑',
+    type: 'boolean',
+    default: '-'
   }
 ];

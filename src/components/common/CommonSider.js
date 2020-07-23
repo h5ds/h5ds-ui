@@ -60,9 +60,6 @@ export default function CommonSider() {
           <Menu.Item key="/ui/tags">
             <Link to="/ui/tags">Tags 标签组</Link>
           </Menu.Item>
-          <Menu.Item key="/ui/uimbModal">
-            <Link to="/ui/uimbModal">MBModal 手机弹窗</Link>
-          </Menu.Item>
           <Menu.Item key="/ui/uploadSource">
             <Link to="/ui/uploadSource">UploadSource 资源上传</Link>
           </Menu.Item>
@@ -71,6 +68,16 @@ export default function CommonSider() {
           </Menu.Item>
           <Menu.Item key="/ui/codeMirror">
             <Link to="/ui/codeMirror">CodeMirror 代码编辑</Link>
+          </Menu.Item>
+          {/* 手机UI */}
+          <Menu.Item key="/ui/uimbModal">
+            <Link to="/ui/uimbModal">MBModal 手机弹窗</Link>
+          </Menu.Item>
+          <Menu.Item key="/ui/uimbActionsheet">
+            <Link to="/ui/uimbActionsheet">MBActionsheet 模态弹出框</Link>
+          </Menu.Item>
+          <Menu.Item key="/ui/uimbToast">
+            <Link to="/ui/uimbToast">MBToast 轻提示</Link>
           </Menu.Item>
         </SubMenu>
       </Menu>

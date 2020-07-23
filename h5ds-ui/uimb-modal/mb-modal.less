@@ -1,78 +1,68 @@
+@border: rgba(0, 0, 0, .1);
+
 .uimb-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  display: none;
+  z-index: 1000;
 
-  .uimb-modal-bodyer-bg{
-    position: absolute;
-    top: 0;
-    left: 0;
+  &.uimb-modal-visible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .uimb-modal-footer {
+    border: 1px solid @border;
+    text-align: center;
+
+    .uimb-modal-btn {
+      display: inline-block;
+      padding: 10px;
+      width: 50%;
+      color: #1890ff;
+    }
+
+    .uimb-modal-btn-cancel {
+      border-right: 1px solid @border;
+      color: #333;
+    }
+  }
+
+  .uimb-modal-mask {
     width: 100%;
     height: 100%;
-    z-index: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: 0.5s;
   }
-  .uimb-modal-bodyer {
-    width: 90%;
+
+  .uimb-modal-content {
+    position: absolute;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
-    position: relative;
-    z-index: 100;
+    transition: 0.5s;
+    transform: translateY(0);
+    min-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
-    .uimb-modal-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 16px;
-      height: 16px;
-      background-color: rgba(0, 0, 0, 0.3);
-      border-radius: 100px;
-      display: flex;
-      align-items: center;
-      z-index: 100;
-      justify-content: center;
-      color: #fff;
+    .uimb-modal-title {
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
     }
 
-    .uimb-modal-downclose {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -50px;
-      color: #fff;
-      border: 1px solid #fff;
-      font-size: 18px;
-      display: flex;
-      border-radius: 100px;
-      align-items: center;
-      justify-content: center;
+    .uimb-modal-body {
+      padding: 0 20px 20px 20px;
     }
+  }
+}
 
-    .uimb-modal-content {
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-
-      .uimb-modal-title {
-        text-align: center;
-        padding: 14px 0;
-        font-size: 15px;
-        font-weight: bolder;
-      }
-
-      .uimb-modal-children {
-        margin: 0 15px;
-        position: relative;
-      }
-    }
+.uimb-modal-confirm {
+  .uimb-modal-content {
+    text-align: center;
   }
 }

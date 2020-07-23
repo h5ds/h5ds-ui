@@ -7,6 +7,21 @@ export default function Logs() {
     <div className="logs">
       <Timeline>
         <Timeline.Item>
+          <p>【2020-07-22】发布v1.0.8版本</p>
+          <p>CodeMirror新增光标插入代码功能</p>
+          <p>MBModal插件调整和优化，新增MBModal.confirm方法</p>
+          <p>新增MBActionSheet插件</p>
+          <p>新增MBToast插件</p>
+        </Timeline.Item>
+        <Timeline.Item>
+          <p>【2020-07-18】发布v1.0.7版本</p>
+          <p>SourceTags参数调整</p>
+        </Timeline.Item>
+        <Timeline.Item>
+          <p>【2020-07-15】发布v1.0.6版本</p>
+          <p>SourceTags BUG修复</p>
+        </Timeline.Item>
+        <Timeline.Item>
           <p>【2020-07-15】发布v1.0.5版本</p>
           <p>SourceTags新增ajaxGetEnd方法</p>
         </Timeline.Item>

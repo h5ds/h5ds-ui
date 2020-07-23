@@ -15,12 +15,16 @@ import SourceLayout from './source-layout';
 import MusicPlayer from './music-player';
 import { util, LoadSource } from './utils';
 import Errors from './errors';
-import MBModal from './uimb-modal';
 import ImgList from './img-list';
 import Colors from './colors';
 import SpreadSheet from './spreadsheet';
 import FontSize from './font-size';
 import CodeMirror from './codemirror';
+
+// 手机UI
+import MBModal from './uimb-modal';
+import MBActionSheet from './uimb-actionsheet';
+import MBToast from './uimb-toast';
 
 export const H5dsUI = {
   CodeMirror,
@@ -43,10 +47,13 @@ export const H5dsUI = {
   SourceLayout,
   ImgBox,
   ImgList,
-  MBModal,
   UploadSource,
   util,
-  LoadSource
+  LoadSource,
+  // 手机UI
+  MBModal,
+  MBActionSheet,
+  MBToast
 };
 
 export {
@@ -70,10 +77,13 @@ export {
   SourceLayout,
   ImgBox,
   ImgList,
-  MBModal,
   UploadSource,
   util,
-  LoadSource
+  LoadSource,
+  // 手机UI
+  MBModal,
+  MBActionSheet,
+  MBToast
 };
 
 window.H5dsUI = H5dsUI;

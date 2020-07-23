@@ -12,6 +12,7 @@ import EditCell from './EditCell';
  * onChange
  * scope: system
  * type: image
+ * canEdit: 可编辑
  */
 class Tags extends Component {
   constructor(props) {
@@ -76,8 +77,8 @@ class Tags extends Component {
     message.success('修改成功！');
   };
 
-  addTags = async name => {
-    await this.props.ajaxAdd({ name, materialType: this.props.type });
+  addTags = async categoryName => {
+    await this.props.ajaxAdd({ categoryName, materialType: this.props.type });
     message.success('添加成功！');
     this.getTags();
   };
@@ -111,7 +112,7 @@ class Tags extends Component {
             </React.Fragment>
           );
         })}
-        {this.props.scope === 'user' ? (
+        {this.props.scope === 'user' || this.props.canEdit ? (
           <>
             <Divider style={{ background: 'rgba(0,0,0,.2)' }} type="vertical" />
             <a className="ui-source-tags-edit" onClick={this.showModal}>

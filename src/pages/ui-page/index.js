@@ -16,10 +16,14 @@ const SliderGroup = dynamic(import('./slider-group'));
 const SourceTags = dynamic(import('./source-tags'));
 const SpreadSheet = dynamic(import('./spreadsheet'));
 const Tags = dynamic(import('./tags'));
-const MBModal = dynamic(import('./mb-modal'));
 const UploadSource = dynamic(import('./upload-source'));
 const Utils = dynamic(import('./utils'));
 const CodeMirror = dynamic(import('./codeMirror'));
+
+// 手机UI
+const MBModal = dynamic(import('./mb-modal'));
+const MBActionSheet = dynamic(import('./mb-actionsheet'));
+const MBToast = dynamic(import('./mb-toast'));
 
 const routes = [
   { path: 'ui/collapse', exact: true, component: Collapse },
@@ -38,10 +42,13 @@ const routes = [
   { path: 'ui/sourceTags', exact: true, component: SourceTags },
   { path: 'ui/spreadSheet', exact: true, component: SpreadSheet },
   { path: 'ui/tags', exact: true, component: Tags },
-  { path: 'ui/uimbModal', exact: true, component: MBModal },
   { path: 'ui/uploadSource', exact: true, component: UploadSource },
   { path: 'ui/utils', exact: true, component: Utils },
-  { path: 'ui/codeMirror', exact: true, component: CodeMirror }
+  { path: 'ui/codeMirror', exact: true, component: CodeMirror },
+  // 手机UI
+  { path: 'ui/uimbModal', exact: true, component: MBModal },
+  { path: 'ui/uimbToast', exact: true, component: MBToast },
+  { path: 'ui/uimbActionsheet', exact: true, component: MBActionSheet }
 ];
 
 export { routes };

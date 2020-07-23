@@ -1,0 +1,57 @@
+.uimb-toast {
+  .uimb-modal-mask {
+    opacity: 0 !important;
+  }
+
+  .uimb-toast-icon {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+
+    .h5font {
+      font-size: 24px;
+      display: inline-block;
+    }
+
+    .uimb-toast-loading-icon {
+      position: absolute;
+      left: 6px;
+      top: -5px;
+      font-size: 32px;
+      transform-origin: center;
+      animation: rollOneCountTemp 1s infinite linear;
+    }
+  }
+
+  .uimb-modal-footer {
+    display: none;
+  }
+
+  .uimb-modal-content {
+    min-width: auto;
+    border-radius: 6px;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+
+    &>.uimb-modal-body {
+      padding: 0;
+      text-align: center;
+    }
+  }
+}
+
+@keyframes rollOneCountTemp {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

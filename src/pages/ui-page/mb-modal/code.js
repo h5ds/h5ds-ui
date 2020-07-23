@@ -6,8 +6,9 @@ function DEMO() {
 
   return (
     <>
-      <Button onClick={() => setVisible(true)}>显示弹窗</Button>
-      <MBModal title="标题" visible={visible} onClose={() => setVisible(false)}>
+      <Button onClick={() => setVisible(true)}>显示弹窗</Button>&nbsp;&nbsp;
+      <Button onClick={() => MBModal.confirm({ onCancel: () => {} })}>confirm</Button>
+      <MBModal title="标题" footer={true} visible={visible} onCancel={() => setVisible(false)}>
         固定的Modal内容
       </MBModal>
     </>

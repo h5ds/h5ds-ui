@@ -20,5 +20,12 @@ export const apis = [
     tips: '颜色变后的回调',
     type: 'Function',
     default: '-'
+  },
+  {
+    key: '4',
+    params: 'insertCode(codeString)',
+    tips: '光标位置插入代码',
+    type: 'Ref.Function',
+    default: '""'
   }
 ];

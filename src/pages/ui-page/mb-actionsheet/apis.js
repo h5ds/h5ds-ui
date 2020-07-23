@@ -48,19 +48,5 @@ export const apis = [
     tips: '弹窗的容器',
     type: 'DOM',
     default: 'document.body'
-  },
-  {
-    key: '8',
-    params: 'footer',
-    tips: '是否显示footer',
-    type: 'boolean',
-    default: 'false'
-  },
-  {
-    key: '9',
-    params: 'Modal.confirm()',
-    tips: '提示弹窗，和antd/Modal.confirm类似',
-    type: '-',
-    default: `{title: '标题', content: '内容', onCancel: () =>{}, onOk: () =>{}}`
   }
 ];

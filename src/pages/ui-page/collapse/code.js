@@ -1,5 +1,5 @@
 export const code = `
-import { Box } from 'h5ds-ui';
+import { Collapse } from 'h5ds-ui';
 
 function DEMO() {
 
