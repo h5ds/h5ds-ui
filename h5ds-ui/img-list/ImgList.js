@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { Modal } from 'antd';
 import './img-list.less';
 
 export default function ImgList({ list, onChange, onDelete, clickImage }) {
   const [previewVisible, setPreviewVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
-  // const [list, setList] = useState('');
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
 
   const selectImage = () => {
     if (clickImage) {
@@ -18,6 +18,15 @@ export default function ImgList({ list, onChange, onDelete, clickImage }) {
     }
   };
 
+  const changeImage = d => {
+    if (window.pubSubEditor) {
+      window.pubSubEditor.publish('h5ds.imageModal.show', data => {
+        d.url = data.url;
+        forceUpdate();
+      });
+    }
+  };
+
   return (
     <>
       <div className="ui-img-list">
@@ -26,6 +35,7 @@ export default function ImgList({ list, onChange, onDelete, clickImage }) {
             <div key={d.id} className="ui-img-list-item">
               <div className="ui-img-list-item-hover">
                 <span className="ui-img-list-icon">
+                  <a onClick={() => onDelete(d)} className="h5font ico-shanchu"></a>
                   <a
                     onClick={() => {
                       setPreviewImage(d.url);
@@ -33,7 +43,7 @@ export default function ImgList({ list, onChange, onDelete, clickImage }) {
                     }}
                     className="h5font ico-yanjing"
                   ></a>
-                  <a onClick={() => onDelete(d)} className="h5font ico-shanchu"></a>
+                  <a onClick={() => changeImage(d)} className="h5font ico-huantu"></a>
                 </span>
               </div>
               <div className="ui-img-list-item-inner">

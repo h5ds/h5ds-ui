@@ -118,7 +118,14 @@ class Tags extends Component {
             <a className="ui-source-tags-edit" onClick={this.showModal}>
               编辑分类
             </a>
-            <Modal width={700} className="ui-modal" footer={null} visible={show} onCancel={this.cancelModal}>
+            <Modal
+              zIndex={this.props.zIndex}
+              width={700}
+              className="ui-modal"
+              footer={null}
+              visible={show}
+              onCancel={this.cancelModal}
+            >
               <div style={{ padding: 50 }}>
                 <Input.Search onSearch={this.addTags} enterButton="添加分类" size="large" />
                 <br />

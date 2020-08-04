@@ -10,7 +10,7 @@
     "web": "webpack --config webpackset/webpack.config.prod.js --colors --display-error-details --progress",
     "build:umd": "webpack --config webpackset/webpack.config.ui.js --colors --display-error-details --progress",
     "build:each": "webpack --config webpackset/webpack.config.each.js --colors --display-error-details --progress",
-    "build": "npm run build:umd && npm run build:each && npm run copy"
+    "build": "npm run build:umd && npm run build:each"
   },
   "repository": {
     "type": "git",

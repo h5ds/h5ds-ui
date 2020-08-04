@@ -2,6 +2,7 @@ import Box from './box';
 import ColorGroup from './color-group';
 import CropImg from './crop-img';
 import Item from './item';
+import CanEditCollapse from './can-edit-collapse';
 import Loading from './loading';
 import SliderGroup from './slider-group';
 import Collapse from './collapse';
@@ -50,6 +51,7 @@ export const H5dsUI = {
   UploadSource,
   util,
   LoadSource,
+  CanEditCollapse,
   // 手机UI
   MBModal,
   MBActionSheet,
@@ -80,6 +82,7 @@ export {
   UploadSource,
   util,
   LoadSource,
+  CanEditCollapse,
   // 手机UI
   MBModal,
   MBActionSheet,
