@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import { Collapse, Divider } from 'antd';
 import './can-edit-collapse.less';
 
-export default function CanEditCollapse({ data = [], render, update }) {
+export default function CanEditCollapse({ data = [], tabKeyName = 'name', render, update }) {
   const { Panel } = Collapse;
   const [, forceUpdate] = useReducer(x => x + 1, 0);
   // 往上移
@@ -59,7 +59,7 @@ export default function CanEditCollapse({ data = [], render, update }) {
                 />
               </span>
             }
-            header={item.name}
+            header={item[tabKeyName]}
             key={item.id}
           >
             {render && render(item)}

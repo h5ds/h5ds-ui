@@ -12,9 +12,10 @@ function MBModal({
   className,
   children,
   zIndex = 1000,
+  style = {},
   container,
   footer = false,
-  title = '系统提示',
+  title = '',
   onOk,
   noModalMaskEvent = false, // 去掉mask的点击事件
   noTransformAnimate = false // 去掉transform的动画
@@ -49,7 +50,7 @@ function MBModal({
       className={classNames('uimb-modal', className, {
         'uimb-modal-visible': visible
       })}
-      style={{ zIndex }}
+      style={{ zIndex, ...style }}
     >
       <div
         className="uimb-modal-mask"
@@ -98,7 +99,7 @@ function randomID(randomLength = 8) {
 
 MBModal.confirm = (params = {}) => {
   const id = `id_${randomID()}`;
-  $('body')
+  $(params.container || document.body)
     .addClass('uimb-noscroll')
     .append(`<div id="${id}"></div>`);
   const container = $(`#${id}`);

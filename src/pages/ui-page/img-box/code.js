@@ -5,6 +5,13 @@ function DEMO() {
 
   const onChange = (type, cropData, src, scale) => {
     console.log({ type, cropData, src, scale });
+    if(type === 'change') {
+      window.pubSubEditor.publish('h5ds.imageModal.show', async data => {
+        d[key] = data.url;
+        forceUpdate();
+        editor.updateCanvas();
+      });
+    }
   };
 
   return (

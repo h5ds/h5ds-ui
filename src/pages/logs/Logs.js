@@ -7,6 +7,21 @@ export default function Logs() {
     <div className="logs">
       <Timeline>
         <Timeline.Item>
+          <p>【2020-08-11】发布v1.0.12版本</p>
+          <p>Mitem新增extra属性</p>
+          <p>优化ImgList插件</p>
+        </Timeline.Item>
+        <Timeline.Item>
+          <p>【2020-08-06】发布v1.0.11版本</p>
+          <p>修复UploadSource插件上传大小限制写死的BUG</p>
+          <p>ImgBox插件新增setting按钮配置</p>
+        </Timeline.Item>
+        <Timeline.Item>
+          <p>【2020-08-04】发布v1.0.9版本</p>
+          <p>ImgList插件新增修改按钮</p>
+          <p>新增CanEditCollapse插件</p>
+        </Timeline.Item>
+        <Timeline.Item>
           <p>【2020-07-22】发布v1.0.8版本</p>
           <p>CodeMirror新增光标插入代码功能</p>
           <p>MBModal插件调整和优化，新增MBModal.confirm方法</p>

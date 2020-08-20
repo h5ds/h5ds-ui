@@ -8,7 +8,9 @@ export default function Example() {
   return (
     <UILayout code={code} apis={apis} info="标题带色块的item">
       <div className="item">
-        <Mitem title="标题">box的内容</Mitem>
+        <Mitem title="标题" extra={<i className="h5font ico-huantu" />}>
+          box的内容
+        </Mitem>
       </div>
     </UILayout>
   );

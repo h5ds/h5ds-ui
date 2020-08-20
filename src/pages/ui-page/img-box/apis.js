@@ -14,4 +14,16 @@ export const apis = [
     type: 'Function',
     default: '-'
   },
+  {
+    key: '3',
+    params: 'setting',
+    tips: '按钮配置',
+    type: 'object',
+    default: `{
+      change: true,
+      restore: true,
+      crop: true,
+      delete: true
+    }`
+  }
 ];

@@ -100,7 +100,7 @@ const pluginConf = {
   ]
 };
 plugins.forEach(name => {
-  if (!['index.js', 'less'].includes(name)) {
+  if (!['index.js', 'mobile.js', 'less'].includes(name)) {
     console.log('build:umdui', name);
     pluginConf.entry[`${name}`] = resolve(`../h5ds-ui/${name}/index.js`);
   }

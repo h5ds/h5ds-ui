@@ -1,11 +1,15 @@
 export const code = `
-import { Mitem } from 'h5ds-ui';
+import React from 'react';
+import { Mitem } from '../../../../h5ds-ui';
 
-function DEMO() {
+export default function Example() {
   return (
     <div className="item">
-      <Mitem title="标题">box的内容</Mitem>
+      <Mitem title="标题" extra={<i className="h5font ico-huantu" />}>
+        box的内容
+      </Mitem>
     </div>
   );
 }
+
 `;

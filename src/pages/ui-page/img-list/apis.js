@@ -27,5 +27,19 @@ export const apis = [
     tips: `只有图片资源的时候此方法才有效，window.pubSubEditor.publish('h5ds.imageModal.show', onChange)`,
     type: 'Function',
     default: '-'
+  },
+  {
+    key: '5',
+    params: 'limit',
+    tips: '限制图片个数',
+    type: 'Number',
+    default: '8'
+  },
+  {
+    key: '6',
+    params: 'addButton',
+    tips: '是否需要添加按钮',
+    type: 'boolean',
+    default: 'true'
   }
 ];

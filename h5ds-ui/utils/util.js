@@ -4,8 +4,8 @@ import debounce from 'lodash/debounce';
 import isObject from 'lodash/isObject';
 import throttle from 'lodash/throttle';
 import uniq from 'lodash/uniq';
-import urlparse from 'url-parse';
 import isEqual from 'react-fast-compare';
+import simpleQueryString from 'simple-query-string';
 
 const dateFormatPreset = {
   datetime: 'YYYY/MM/DD HH:mm:ss',
@@ -48,13 +48,13 @@ class Util {
    * @returns 字符串querystring
    */
   data2QueryString(data) {
-    const urlObj = urlparse('');
-    urlObj.set('query', data);
-    return urlObj.href.split('?')[1];
-  }
-
-  parseUrl(url) {
-    return urlparse(url);
+    let str = [];
+    if (data) {
+      for (let key in data) {
+        str.push(`${key}=${data[key]}`);
+      }
+    }
+    return str.join('&');
   }
 
   prepareKV(text) {
@@ -69,15 +69,8 @@ class Util {
    * @param {string} name 要查询的 querystring 名称
    */
   getUrlData(name) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split('=');
-      if (pair[0] == name) {
-        return pair[1];
-      }
-    }
-    return false;
+    const params = simpleQueryString.parse(location.href);
+    return name ? params[name] : params;
   }
 
   /**
@@ -206,8 +199,8 @@ class Util {
    * @param {string} name 要查询的 querystring 名称
    */
   getUrlQuery(name) {
-    const urlObj = urlparse(window.location.href);
-    return name ? urlObj.query[name] : urlObj.query;
+    const params = simpleQueryString.parse(location.href);
+    return name ? params[name] : params;
   }
 
   /**

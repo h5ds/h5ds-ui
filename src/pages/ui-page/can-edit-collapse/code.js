@@ -1,73 +1,45 @@
 export const code = `
-import React, { useReducer } from 'react';
-import { Collapse, Divider } from 'antd';
-import './can-edit-collapse.less';
+import React, { useState } from 'react';
+import { CanEditCollapse, Item, util } from '../../../../h5ds-ui';
+import { Button } from 'antd';
 
-export default function CanEditCollapse({ data = [], render, update }) {
-  const { Panel } = Collapse;
-  const [, forceUpdate] = useReducer(x => x + 1, 0);
-  // 往上移
-  const prevItem = (index, e) => {
-    e.stopPropagation();
-    if (index === 0) {
-      return;
-    }
-    // 交换 index, index-1 位置
-    [data[index - 1], data[index]] = [data[index], data[index - 1]];
-    forceUpdate();
-    update();
+export default function Example() {
+  const [data, setData] = useState([
+    { id: 1, name: '标题1', content: '内容' },
+    { id: 2, name: '标题2', content: '内容' }
+  ]);
+
+  const update = () => {
+    console.log('执行updateCanvas等方法');
   };
 
-  // 往下移
-  const nextItem = (index, e) => {
-    e.stopPropagation();
-    if (index === data.length - 1) {
-      return;
-    }
-    // 交换 index, index+1 位置
-    [data[index], data[index + 1]] = [data[index + 1], data[index]];
-    forceUpdate();
-    update();
-  };
-
-  // 删除菜单
-  const deleteItem = (index, e) => {
-    e.stopPropagation();
-    data.splice(index, 1);
-    forceUpdate();
-    update();
+  const addItem = () => {
+    data.push({ id: util.randomID(), name: '标题' + util.randomID(), content: '内容' });
+    setData([...data]);
   };
 
   return (
-    <Collapse className="ui-canedit-collapse" accordion>
-      {data.map((item, index) => {
-        return (
-          <Panel
-            extra={
-              <span>
-                <i className="h5font ico-shanchu" onClick={e => deleteItem(index, e)} type="close" />
-                <Divider type="vertical" />
-                <i
-                  className="h5font ico-up"
-                  style={{ color: index ? '#505050' : '#e6e6e6' }}
-                  onClick={e => prevItem(index, e)}
-                />
-                <Divider type="vertical" />
-                <i
-                  className="h5font ico-down"
-                  style={{ color: index !== data.length - 1 ? '#505050' : '#e6e6e6' }}
-                  onClick={e => nextItem(index, e)}
-                />
-              </span>
-            }
-            header={item.name}
-            key={item.id}
-          >
-            {render && render(item)}
-          </Panel>
-        );
-      })}
-    </Collapse>
+    <>
+      <h3>
+        可编辑的Item{' '}
+        <Button onClick={addItem} size="small">
+          新增
+        </Button>
+      </h3>
+      <div className="item">
+        <CanEditCollapse
+          data={data}
+          update={update}
+          render={d => {
+            return (
+              <Item title="设置内容" size="small">
+                {d.content}
+              </Item>
+            );
+          }}
+        />
+      </div>
+    </>
   );
 }
 `;

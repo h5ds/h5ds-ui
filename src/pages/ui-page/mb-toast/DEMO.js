@@ -21,23 +21,23 @@ noMargin
 export default function Example() {
   const loading = () => {
     const hide = MBToast.loading('xxx');
-    setTimeout(() => {
-      hide();
-    }, 2000);
+    // setTimeout(() => {
+    //   hide();
+    // }, 2000000000);
   };
 
   const success = () => {
     const hide = MBToast.success();
-    setTimeout(() => {
-      hide();
-    }, 2000);
+    // setTimeout(() => {
+    //   hide();
+    // }, 2000);
   };
 
   const error = () => {
     const hide = MBToast.error();
-    setTimeout(() => {
-      hide();
-    }, 2000);
+    // setTimeout(() => {
+    //   hide();
+    // }, 2000);
   };
 
   return (

@@ -2,7 +2,7 @@ import React, { useState, useReducer } from 'react';
 import { Modal } from 'antd';
 import './img-list.less';
 
-export default function ImgList({ list, onChange, onDelete, clickImage }) {
+export default function ImgList({ list, limit = 8, addButton = true, onChange, onDelete, clickImage }) {
   const [previewVisible, setPreviewVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
   const [, forceUpdate] = useReducer(x => x + 1, 0);
@@ -35,7 +35,7 @@ export default function ImgList({ list, onChange, onDelete, clickImage }) {
             <div key={d.id} className="ui-img-list-item">
               <div className="ui-img-list-item-hover">
                 <span className="ui-img-list-icon">
-                  <a onClick={() => onDelete(d)} className="h5font ico-shanchu"></a>
+                  {onDelete && <a onClick={() => onDelete(d)} className="h5font ico-shanchu"></a>}
                   <a
                     onClick={() => {
                       setPreviewImage(d.url);
@@ -52,7 +52,7 @@ export default function ImgList({ list, onChange, onDelete, clickImage }) {
             </div>
           );
         })}
-        {list.length >= 8 ? null : (
+        {list.length >= limit && addButton ? null : (
           <div className="ui-img-list-item">
             <div onClick={selectImage} className="ui-img-list-item-inner">
               <a className="h5font ico-jia"></a>

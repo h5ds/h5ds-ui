@@ -34,7 +34,7 @@ export default function UploadSource({
     }
     const isLt2M = file.size / 1024 / 1024 < maxSize;
     if (!isLt2M) {
-      message.error(`${name}大小不能超过2MB!`);
+      message.error(`${name}大小不能超过${maxSize}MB!`);
     }
 
     if ((!isJpgOrPng || !isLt2M) && error) {

@@ -7,10 +7,11 @@
     "start": "npm run dev",
     "dev": "webpack-dev-server --config webpackset/webpack.config.dev.js --open",
     "copy": "webpack --config webpackset/webpack.config.copy.js --colors --display-error-details --progress",
-    "web": "webpack --config webpackset/webpack.config.prod.js --colors --display-error-details --progress",
+    "build:web": "webpack --config webpackset/webpack.config.prod.js --colors --display-error-details --progress",
     "build:umd": "webpack --config webpackset/webpack.config.ui.js --colors --display-error-details --progress",
+    "build:mbui": "webpack --config webpackset/webpack.config.mbui.js --colors --display-error-details --progress",
     "build:each": "webpack --config webpackset/webpack.config.each.js --colors --display-error-details --progress",
-    "build": "npm run build:umd && npm run build:each"
+    "build": "npm run build:umd && npm run build:mbui && npm run build:each"
   },
   "repository": {
     "type": "git",
@@ -111,6 +112,7 @@
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-sortablejs": "^2.0.11",
+    "simple-query-string": "^1.3.2",
     "tinycolor2": "^1.4.1",
     "use-debounce": "^3.4.2",
     "uuid": "^3.3.2",

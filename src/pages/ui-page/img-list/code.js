@@ -24,7 +24,7 @@ function DEMO() {
   };
 
   return (
-    <ImgList list={list} onDelete={onDelete} clickImage={clickImage} />
+    <ImgList list={list} addButton={true} limit={8} onDelete={onDelete} clickImage={clickImage} />
   );
 }
 `;

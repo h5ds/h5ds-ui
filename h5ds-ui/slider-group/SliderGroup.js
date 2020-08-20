@@ -41,12 +41,16 @@ function SliderGroup({ width = 120, step = 0.1, min = 0, max = 1, value = 0, onC
           value={typeof val === 'number' ? val : 0}
         />
         <InputNumber
+          size="small"
           step={step}
           min={min}
           max={max}
           style={{ marginLeft: 10, width: 52 }}
           value={val}
-          onChange={doChange}
+          onChange={v => {
+            doChange(v);
+            doOnAfterChange(v);
+          }}
         />
       </div>
     </div>

@@ -13,5 +13,12 @@ export const apis = [
     tips: '样式',
     type: 'string',
     default: '""'
+  },
+  {
+    key: '3',
+    params: 'extra',
+    tips: '额外模块',
+    type: 'string | ReactNode',
+    default: '-'
   }
 ];

@@ -4,7 +4,16 @@ import { util } from '../utils';
 import { Modal } from 'antd';
 import CropImg from './CropImg';
 
-function ImgBox({ src, onChange }, ref) {
+function ImgBox({ src, onChange, setting = {} }, ref) {
+  const set = Object.assign(
+    {
+      change: true,
+      restore: true,
+      crop: true,
+      delete: true
+    },
+    setting
+  );
   const [visibleModal, setVisibleModal] = useState(false);
 
   // 提供给外部的ref使用，ref.current.func()
@@ -36,10 +45,12 @@ function ImgBox({ src, onChange }, ref) {
         <img src={src} alt="" />
       </div>
       <div className="ui-imgbox-btns">
-        <a title="替换图片" onClick={changeImage} className="h5font ico-huantu1"></a>
-        <a title="还原图片" onClick={restoreImage} className="h5font ico-huantu"></a>
-        <a title="裁剪图片" onClick={() => setVisibleModal(true)} className="h5font ico-jiandaocaijian"></a>
-        <a title="删除图片" onClick={deleteImage} className="h5font ico-shanchu"></a>
+        {set.change && <a title="替换图片" onClick={changeImage} className="h5font ico-huantu1"></a>}
+        {set.restore && <a title="还原图片" onClick={restoreImage} className="h5font ico-huantu"></a>}
+        {set.crop && (
+          <a title="裁剪图片" onClick={() => setVisibleModal(true)} className="h5font ico-jiandaocaijian"></a>
+        )}
+        {set.delete && <a title="删除图片" onClick={deleteImage} className="h5font ico-shanchu"></a>}
       </div>
       <Modal
         width={900}

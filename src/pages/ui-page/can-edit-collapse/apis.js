@@ -20,5 +20,12 @@ export const apis = [
     tips: '删除新增修改后会触发该方法',
     type: 'Function',
     default: '-'
+  },
+  {
+    key: '4',
+    params: 'tabKeyName',
+    tips: '显示的名字对象KEY',
+    type: 'String',
+    default: 'name'
   }
 ];
