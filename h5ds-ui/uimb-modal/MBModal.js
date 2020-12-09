@@ -14,6 +14,7 @@ function MBModal({
   zIndex = 1000,
   style = {},
   container,
+  width,
   footer = false,
   title = '',
   onOk,
@@ -50,24 +51,22 @@ function MBModal({
       className={classNames('uimb-modal', className, {
         'uimb-modal-visible': visible
       })}
-      style={{ zIndex, ...style }}
-    >
+      style={{ zIndex, ...style }}>
       <div
         className="uimb-modal-mask"
         style={{
           pointerEvents: noModalMaskEvent ? 'none' : 'initial',
           opacity: show ? 1 : 0
         }}
-        onClick={onCancelThis}
-      ></div>
+        onClick={onCancelThis}></div>
       {visible && (
         <div
           className="uimb-modal-content"
           style={{
+            width,
             transform: noTransformAnimate ? 'none' : `translateY(${show ? 0 : '100%'})`,
             opacity: show ? 1 : 0
-          }}
-        >
+          }}>
           {title && <div className="uimb-modal-title">{title}</div>}
           <div className="uimb-modal-body">{children}</div>
           {footer && (
@@ -90,11 +89,7 @@ function MBModal({
 }
 
 function randomID(randomLength = 8) {
-  return Number(
-    Math.random()
-      .toString()
-      .substr(3, randomLength) + Date.now()
-  ).toString(36);
+  return Number(Math.random().toString().substr(3, randomLength) + Date.now()).toString(36);
 }
 
 MBModal.confirm = (params = {}) => {
@@ -150,18 +145,25 @@ MBModal.confirm = (params = {}) => {
     animateRun(true);
   });
 
-  const { content, zIndex = 1000, title = '', className, noModalMaskEvent, noTransformAnimate, onCancel } = params;
+  const {
+    content,
+    zIndex = 1000,
+    width,
+    title = '',
+    className,
+    noModalMaskEvent,
+    noTransformAnimate,
+    onCancel
+  } = params;
   render(
     <div className={classNames('uimb-modal uimb-modal-confirm uimb-modal-visible', className)} style={{ zIndex }}>
       <div
         className="uimb-modal-mask"
         onClick={onCancelThis}
-        style={{ opacity: 0, pointerEvents: noModalMaskEvent ? 'none' : 'initial' }}
-      ></div>
+        style={{ opacity: 0, pointerEvents: noModalMaskEvent ? 'none' : 'initial' }}></div>
       <div
         className="uimb-modal-content"
-        style={{ opacity: 0, transform: noTransformAnimate ? 'none' : `translateY(100%)` }}
-      >
+        style={{ opacity: 0, width, transform: noTransformAnimate ? 'translateY(0)' : `translateY(100%)` }}>
         {title && <div className="uimb-modal-title">{title}</div>}
         <div className="uimb-modal-body">{content}</div>
         <div className="uimb-modal-footer">
@@ -170,9 +172,11 @@ MBModal.confirm = (params = {}) => {
               取消
             </a>
           )}
-          <a className="uimb-modal-btn" onClick={onOk}>
-            确定
-          </a>
+          {params.onOk && (
+            <a className="uimb-modal-btn" onClick={onOk}>
+              确定
+            </a>
+          )}
         </div>
       </div>
     </div>,

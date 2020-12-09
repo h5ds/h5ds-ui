@@ -29,8 +29,10 @@ class Tags extends Component {
    * 获取标签
    */
   getTags = async (page = 1) => {
-    const { ajaxGet, scope, type, ajaxGetEnd } = this.props;
-    const res = await ajaxGet({ params: { materialType: type, scope, keyword: '', page, page_size: 999 } });
+    const { ajaxGet, scope, type, ajaxGetEnd, appType = 0 } = this.props;
+    const res = await ajaxGet({
+      params: { materialType: type, scope, keyword: '', page, page_size: 999, type: appType }
+    });
     if (res) {
       if (ajaxGetEnd) {
         ajaxGetEnd(res.data);
@@ -78,7 +80,7 @@ class Tags extends Component {
   };
 
   addTags = async categoryName => {
-    await this.props.ajaxAdd({ categoryName, materialType: this.props.type });
+    await this.props.ajaxAdd({ categoryName, materialType: this.props.type, type: this.props.appType });
     message.success('添加成功！');
     this.getTags();
   };
@@ -105,8 +107,7 @@ class Tags extends Component {
                 onClick={() => this.clickTag(elem)}
                 className={classNames({
                   'ui-source-tags-active': elem.id === active
-                })}
-              >
+                })}>
                 {elem.categoryName}
               </section>
             </React.Fragment>
@@ -124,8 +125,7 @@ class Tags extends Component {
               className="ui-modal"
               footer={null}
               visible={show}
-              onCancel={this.cancelModal}
-            >
+              onCancel={this.cancelModal}>
               <div style={{ padding: 50 }}>
                 <Input.Search onSearch={this.addTags} enterButton="添加分类" size="large" />
                 <br />
@@ -165,8 +165,7 @@ class Tags extends Component {
                       dataIndex: 'set',
                       key: 'set'
                     }
-                  ]}
-                ></Table>
+                  ]}></Table>
               </div>
             </Modal>
           </>

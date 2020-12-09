@@ -20,6 +20,7 @@ const Tags = dynamic(import('./tags'));
 const UploadSource = dynamic(import('./upload-source'));
 const Utils = dynamic(import('./utils'));
 const CodeMirror = dynamic(import('./codeMirror'));
+const GradientColors = dynamic(import('./gradient-colors'));
 
 // 手机UI
 const MBModal = dynamic(import('./mb-modal'));
@@ -30,6 +31,7 @@ const routes = [
   { path: 'ui/collapse', name: 'Collapse 折叠面板', exact: true, component: Collapse },
   { path: 'ui/colorGroup', name: 'ColorGroup 颜色库', exact: true, component: ColorGroup },
   { path: 'ui/colors', name: 'Colors 颜色组', exact: true, component: Colors },
+  { path: 'ui/gradientColors', name: 'GradientColors 渐变颜色', exact: true, component: GradientColors },
   { path: 'ui/error', name: 'Error 错误模块', exact: true, component: Error },
   { path: 'ui/fontSize', name: 'FontSize 文字大小', exact: true, component: FontSize },
   { path: 'ui/imgBox', name: 'ImgBox 图片盒子', exact: true, component: ImgBox },

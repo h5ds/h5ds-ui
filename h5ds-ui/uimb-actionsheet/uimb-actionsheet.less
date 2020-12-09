@@ -3,7 +3,7 @@
 }
 
 .uimb-actionsheet {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -25,9 +25,18 @@
 
   .uimb-actionsheet-title {
     text-align: center;
+    position: relative;
     padding: 15px;
     font-size: 16px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    .uimb-actionsheet-close {
+      position: absolute;
+      z-index: 100;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 
   .uimb-actionsheet-content {

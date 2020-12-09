@@ -1,4 +1,4 @@
-const { resolve } = require('./config');
+const { resolve, version } = require('./config');
 
 // webpack 配置文档
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -48,6 +48,9 @@ module.exports = {
   plugins: [
     new webpack.BannerPlugin('欢迎使用H5DS，官网：www.h5ds.com'),
     new CaseSensitivePathsPlugin(),
+    new webpack.DefinePlugin({
+      _VERSION_: JSON.stringify(version)
+    }),
     new CopyWebpackPlugin([
       {
         from: resolve('../src/assets'),

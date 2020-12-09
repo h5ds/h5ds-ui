@@ -27,6 +27,7 @@ function CropImg({ src, initCrop = {}, cropEnd, reset, changeSrc, deleteImg, isB
   const [crop, setCrop] = useState(Object.assign({ unit: 'px' }, { ...initCrop }));
   const [scale, setScale] = useState(null);
   const boxRef = useRef();
+  const imgRef = useRef();
 
   // 获取scale
   useEffect(() => {
@@ -34,6 +35,7 @@ function CropImg({ src, initCrop = {}, cropEnd, reset, changeSrc, deleteImg, isB
     if (src) {
       const getImageScale = async () => {
         const _img = await util.imgLazy(src);
+        imgRef.current = _img;
         const { clientWidth, clientHeight } = boxRef.current.componentRef;
         if (_img) {
           let scaleX = _img.naturalWidth / clientWidth;
@@ -57,11 +59,11 @@ function CropImg({ src, initCrop = {}, cropEnd, reset, changeSrc, deleteImg, isB
 
   const setNewCrop = async newCrop => {
     if (!isEqual(crop, newCrop)) {
-      const _img = await util.imgLazy(src);
+      // const _img = await util.imgLazy(src);
       setCrop({
         ...newCrop,
-        naturalWidth: _img.naturalWidth,
-        naturalHeight: _img.naturalHeight
+        naturalWidth: imgRef.current.naturalWidth,
+        naturalHeight: imgRef.current.naturalHeight
       });
     }
   };

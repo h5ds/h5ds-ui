@@ -28,7 +28,7 @@ export default function Example() {
 
   return (
     <UILayout code={code} apis={apis} info="多图片编辑">
-      <ImgList list={list} onDelete={onDelete} clickImage={clickImage} />
+      <ImgList addButton={true} list={list} onDelete={onDelete} clickImage={clickImage} />
     </UILayout>
   );
 }

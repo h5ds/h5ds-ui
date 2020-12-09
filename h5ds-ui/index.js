@@ -21,13 +21,18 @@ import Colors from './colors';
 import SpreadSheet from './spreadsheet';
 import FontSize from './font-size';
 import CodeMirror from './codemirror';
+import GradientColors from './gradient-colors';
 
 // 手机UI
 import MBModal from './uimb-modal';
 import MBActionSheet from './uimb-actionsheet';
 import MBToast from './uimb-toast';
 
+// eslint-disable-next-line no-undef
+const version = _VERSION_;
+
 export const H5dsUI = {
+  version,
   CodeMirror,
   Errors,
   FontSize,
@@ -52,6 +57,7 @@ export const H5dsUI = {
   util,
   LoadSource,
   CanEditCollapse,
+  GradientColors,
   // 手机UI
   MBModal,
   MBActionSheet,
@@ -59,6 +65,7 @@ export const H5dsUI = {
 };
 
 export {
+  version,
   CodeMirror,
   Errors,
   FontSize,
@@ -83,6 +90,7 @@ export {
   util,
   LoadSource,
   CanEditCollapse,
+  GradientColors,
   // 手机UI
   MBModal,
   MBActionSheet,

@@ -14,7 +14,7 @@ export default function CanEditCollapse({ data = [], tabKeyName = 'name', render
     // 交换 index, index-1 位置
     [data[index - 1], data[index]] = [data[index], data[index - 1]];
     forceUpdate();
-    update();
+    update('prev', index);
   };
 
   // 往下移
@@ -26,15 +26,18 @@ export default function CanEditCollapse({ data = [], tabKeyName = 'name', render
     // 交换 index, index+1 位置
     [data[index], data[index + 1]] = [data[index + 1], data[index]];
     forceUpdate();
-    update();
+    update('next', index);
   };
 
   // 删除菜单
   const deleteItem = (index, e) => {
     e.stopPropagation();
-    data.splice(index, 1);
+    const arr = data.splice(index, 1);
     forceUpdate();
-    update();
+    update('delete', {
+      index,
+      value: arr
+    });
   };
 
   return (
@@ -60,8 +63,7 @@ export default function CanEditCollapse({ data = [], tabKeyName = 'name', render
               </span>
             }
             header={item[tabKeyName]}
-            key={item.id}
-          >
+            key={item.id}>
             {render && render(item)}
           </Panel>
         );

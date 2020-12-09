@@ -1,7 +1,7 @@
 {
   "name": "h5ds-mbui",
   "author": "四川爱趣五科技有限公司",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "html5 design software",
   "main": "dist/index.js",
   "license": "other",

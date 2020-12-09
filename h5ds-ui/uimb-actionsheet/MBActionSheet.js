@@ -1,12 +1,12 @@
 import './uimb-actionsheet.less';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
 /**
  * props: visible, onCancel
  */
-function MBActionSheet({ title, visible, className, onCancel, children, zIndex, container }) {
+function MBActionSheet({ title, visible, unclose, className, onCancel, children, zIndex, container }, ref) {
   const [show, setShow] = useState(visible);
   const timer = useRef();
 
@@ -26,6 +26,12 @@ function MBActionSheet({ title, visible, className, onCancel, children, zIndex, 
     }, 500);
   };
 
+  useImperativeHandle(ref, () => ({
+    onCancel: () => {
+      onCancelThis();
+    }
+  }));
+
   if (visible) {
     $('body').addClass('uimb-noscroll');
   } else {
@@ -37,23 +43,25 @@ function MBActionSheet({ title, visible, className, onCancel, children, zIndex, 
       className={classNames('uimb-actionsheet', className, {
         'uimb-actionsheet-visible': visible
       })}
-      style={{ zIndex }}
-    >
+      style={{ zIndex }}>
       <div
         className="uimb-actionsheet-mask"
         style={{
           opacity: show ? 1 : 0
         }}
-        onClick={onCancelThis}
-      ></div>
+        onClick={onCancelThis}></div>
       {visible && (
         <div
           className="uimb-actionsheet-content"
           style={{
             transform: `translateY(${show ? 0 : '100%'})`
-          }}
-        >
-          {title && <div className="uimb-actionsheet-title">{title}</div>}
+          }}>
+          {title && (
+            <div className="uimb-actionsheet-title">
+              {!unclose && <a onClick={onCancelThis} className="uimb-actionsheet-close mbfont iconmb-left"></a>}
+              {title}
+            </div>
+          )}
           {children}
         </div>
       )}
@@ -62,4 +70,4 @@ function MBActionSheet({ title, visible, className, onCancel, children, zIndex, 
   );
 }
 
-export default MBActionSheet;
+export default forwardRef(MBActionSheet);
