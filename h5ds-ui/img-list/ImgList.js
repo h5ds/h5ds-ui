@@ -2,7 +2,7 @@ import React, { useState, useReducer } from 'react';
 import { Modal } from 'antd';
 import './img-list.less';
 
-export default function ImgList({ list, limit = 8, addButton, onChange, onDelete, clickImage }) {
+export default function ImgList({ list, limit = 8, addButton, onChange, onReplace, onDelete, clickImage }) {
   const [previewVisible, setPreviewVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
   const [, forceUpdate] = useReducer(x => x + 1, 0);
@@ -21,6 +21,7 @@ export default function ImgList({ list, limit = 8, addButton, onChange, onDelete
   const changeImage = d => {
     if (window.pubSubEditor) {
       window.pubSubEditor.publish('h5ds.imageModal.show', data => {
+        onReplace(data);
         d.url = data.url;
         forceUpdate();
       });
@@ -41,8 +42,7 @@ export default function ImgList({ list, limit = 8, addButton, onChange, onDelete
                       setPreviewImage(d.url);
                       setPreviewVisible(true);
                     }}
-                    className="h5font ico-yanjing"
-                  ></a>
+                    className="h5font ico-yanjing"></a>
                   <a onClick={() => changeImage(d)} className="h5font ico-huantu"></a>
                 </span>
               </div>

@@ -1,3 +1,5 @@
+import './less/common.less';
+
 import Box from './box';
 import ColorGroup from './color-group';
 import CropImg from './crop-img';

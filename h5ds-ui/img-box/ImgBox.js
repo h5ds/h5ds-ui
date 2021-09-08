@@ -57,9 +57,8 @@ function ImgBox({ src, onChange, setting = {} }, ref) {
         className="ui-modal ui-modal-full"
         footer={null}
         visible={visibleModal}
-        onCancel={() => setVisibleModal(false)}
-      >
-        <CropImg src={src} onChange={cropEnd} />
+        onCancel={() => setVisibleModal(false)}>
+        <CropImg src={src} initCrop={setting.initCrop} onChange={cropEnd} />
       </Modal>
     </div>
   );
