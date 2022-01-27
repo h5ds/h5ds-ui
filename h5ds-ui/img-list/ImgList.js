@@ -21,7 +21,9 @@ export default function ImgList({ list, limit = 8, addButton, onChange, onReplac
   const changeImage = d => {
     if (window.pubSubEditor) {
       window.pubSubEditor.publish('h5ds.imageModal.show', data => {
-        onReplace(data);
+        if(onReplace) {
+          onReplace(data);
+        }
         d.url = data.url;
         forceUpdate();
       });
