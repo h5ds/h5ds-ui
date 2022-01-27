@@ -31,7 +31,7 @@ function CropImg({ src, initCrop = {}, cropEnd, reset, changeSrc, deleteImg, isB
 
   // 获取scale
   useEffect(() => {
-    console.log('w cao ~', src);
+    console.log('wwwwwwwwwwwwwww cao ~', src);
     if (src) {
       const getImageScale = async () => {
         const _img = await util.imgLazy(src);

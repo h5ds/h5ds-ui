@@ -8,6 +8,9 @@ import isEqual from 'react-fast-compare';
 import { util } from '../utils';
 
 export default function CropImg({ src, initCrop = {}, onChange, onCancel }) {
+  if (util.isEmpty(initCrop)) {
+    initCrop = { x: 0, y: 0, width: 0, height: 0 };
+  }
   const [crop, setCrop] = useState(Object.assign({ unit: 'px' }, { ...initCrop }));
   const [scale, setScale] = useState(null);
 
@@ -35,10 +38,10 @@ export default function CropImg({ src, initCrop = {}, onChange, onCancel }) {
           let scaleY = _img.naturalHeight / clientHeight;
           setCrop({
             unit: 'px',
-            x: initCrop.x / scaleX,
-            y: initCrop.y / scaleY,
-            height: initCrop.height / scaleY,
-            width: initCrop.width / scaleX,
+            x: initCrop.x / scaleX || 0,
+            y: initCrop.y / scaleY || 0,
+            height: initCrop.height / scaleY || 0,
+            width: initCrop.width / scaleX || 0,
             naturalWidth: _img.naturalWidth,
             naturalHeight: _img.naturalHeight
           });
